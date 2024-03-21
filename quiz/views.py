@@ -36,7 +36,7 @@ class Quiz(View):
         mark=0
         b=quiz_p.correct_options(str(quiz_id))
         data=quiz_p.quiz_data(str(quiz_id))
-        print(data)
+       
         name=str(request.user)
         quiz_name=data["name"]
         
@@ -47,12 +47,7 @@ class Quiz(View):
                 mark+=1
         
         total=len(b)
-        pre_mark=LBoard.update_mark(name,quiz_name)
-        if(pre_mark>mark):
-           
-            return render(request,"quiz/result.html",{"content":mark,"quiz_id":str(quiz_id)})
-        
-
+        LBoard.update_mark(name,quiz_name,mark)
         LBoard.store_data(name,quiz_name,mark,total)
             
         

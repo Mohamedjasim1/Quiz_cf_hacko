@@ -37,6 +37,10 @@
   </nav>
   
   {% block body %}{% endblock %}
-  <script src="{% static 'js/bootstrap.js' %}"></script>
+  
+    {% block js %}
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    {% endblock %}
+  
 </body>
 </html>

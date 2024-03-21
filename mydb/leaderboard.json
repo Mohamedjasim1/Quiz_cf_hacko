@@ -1,17 +1,35 @@
 {
     "hazana": [
         {
+            "sample": {
+                "got": 0,
+                "total": 7
+            }
+        },
+        {
             "python quiz": {
                 "got": 2,
                 "total": 2
+            }
+        },
+        {
+            "CF quiz": {
+                "got": 2,
+                "total": 5
             }
         }
     ],
     "anonymous@example.com": [
         {
             "python quiz": {
-                "got": 0,
+                "got": 2,
                 "total": 2
+            }
+        },
+        {
+            "sample": {
+                "got": 3,
+                "total": 7
             }
         }
     ],
@@ -24,8 +42,8 @@
         },
         {
             "sample": {
-                "got": 0,
-                "total": 2
+                "got": 1,
+                "total": 7
             }
         }
     ]

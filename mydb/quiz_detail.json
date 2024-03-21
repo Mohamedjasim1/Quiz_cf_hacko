@@ -48,6 +48,112 @@
                     "her"
                 ],
                 "correct": "D"
+            },
+            {
+                "quiz": "ew",
+                "options": [
+                    "wre",
+                    "w4",
+                    "tw4",
+                    "t4r"
+                ],
+                "correct": "A"
+            },
+            {
+                "quiz": "ewerw",
+                "options": [
+                    "qewa",
+                    "qr",
+                    "qr",
+                    "qr"
+                ],
+                "correct": "C"
+            },
+            {
+                "quiz": "wrw",
+                "options": [
+                    "wre",
+                    "w",
+                    "tw",
+                    "wt"
+                ],
+                "correct": "D"
+            },
+            {
+                "quiz": "ewrq",
+                "options": [
+                    "qwr",
+                    "tw",
+                    "rq",
+                    "r"
+                ],
+                "correct": "A"
+            },
+            {
+                "quiz": "sduyw",
+                "options": [
+                    "eqwrh",
+                    "erneq",
+                    "wrtbt",
+                    "wegf"
+                ],
+                "correct": "A"
+            }
+        ]
+    },
+    "3": {
+        "creator": "hazana",
+        "name": "CF quiz",
+        "quizzes": [
+            {
+                "quiz": "how many leads in cf?",
+                "options": [
+                    "3",
+                    "4",
+                    "2",
+                    "1"
+                ],
+                "correct": "B"
+            },
+            {
+                "quiz": "which is active club in pec?",
+                "options": [
+                    "Coders_forum",
+                    "club_2",
+                    "club_3",
+                    "club_4"
+                ],
+                "correct": "A"
+            },
+            {
+                "quiz": "rioeqjoiwr",
+                "options": [
+                    "wriwre",
+                    "re",
+                    "w",
+                    "re"
+                ],
+                "correct": "B"
+            },
+            {
+                "quiz": "reifihwre",
+                "options": [
+                    "gertjrw",
+                    "ertkg",
+                    "erwh",
+                    "werjb"
+                ],
+                "correct": "B"
+            },
+            {
+                "quiz": "rewjfh",
+                "options": [
+                    "rwejh",
+                    "wgrkj",
+                    "wrh",
+                    "werhb"
+                ],
+                "correct": "B"
             }
         ]
     }
