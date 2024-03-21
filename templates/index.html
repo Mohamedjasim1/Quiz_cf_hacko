@@ -1,0 +1,42 @@
+{% extends 'layout.html' %}
+
+{% block title %}Index{% endblock %}
+
+{% block body %}
+
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <p>Hello{% if request.user.is_authenticated %}, {{ request.user.username }}{% endif %}!</p>
+  
+    <p>This is My CF Hackathon project, a dynamic quiz platform that's in the exciting phase of development.</p>
+  
+    <p>What sets our site apart?</p>
+    <ul>
+      <li><strong>Engaging Quizzes</strong>
+      <li><strong>Create Your Quiz</strong> 
+      <li><strong>Instant Result</strong> 
+      <li><strong>View Leaderboard</strong>
+        <br><br><br>
+    <strong>NOTE :</strong>
+    <p>We're currently developing a Quiz Timing Functionality that will add a thrilling time-based challenge</p>
+  
+    <br><br><br>
+
+
+    <p>Stay tuned for updates and get ready to enjoy an enhanced quiz experience like never before. Whether you’re looking to test your smarts, challenge friends, or simply have fun learning new things, our site is the place to be.</p>
+  
+    <p>Thank you for being a part of our journey. Your adventure in knowledge starts now!</p>
+  </div>
+  
+  
+  <footer class=" text-center text-lg-start">
+    
+    <a style="text-decoration: none;" href="https://www.linkedin.com/in/mohamed-jasim-b57802259/"><div class="text-center p-3" style="color: white;">
+        Developed by: 
+        <strong>Team CodeConquerors</strong>
+        
+    </div>
+  </a>
+</footer>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'layout2.html' %}
+
+{% block title %}Result{% endblock %}
+{% block nav %}
+<li class="nav-item">
+  <a class="nav-link text-center" href="{% url 'leaderboard' quiz_id %}">Leaderboard</a>
+</li>
+{% endblock %}
+{% block body %}
+
+<div class="container mt-5">
+
+  <div class="row">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title text-center">RESULT</h5>
+        <p class="card-text text-center">
+          
+          YOUR SCORE IS {{content}}
+          
+      </p>
+        
+      </div>
+  </div>
+    </div></div>
+</div>
+<div style="margin-top: 280px;margin-left: 830px;">
+<div style="display: flex;align-items:center;justify-content: center;">
+  <a href="{% url 'module' %}"><button type="submit" class="btn btn-primary w-80">Back</button></a>
+</div>
+</div>
+
+{% endblock %}
