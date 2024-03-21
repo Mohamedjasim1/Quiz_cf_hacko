@@ -42,8 +42,24 @@
         },
         {
             "sample": {
-                "got": 1,
+                "got": 2,
                 "total": 7
+            }
+        }
+    ],
+    "summa": [
+        {
+            "python quiz": {
+                "got": 1,
+                "total": 2
+            }
+        }
+    ],
+    "moni": [
+        {
+            "python quiz": {
+                "got": 0,
+                "total": 2
             }
         }
     ]

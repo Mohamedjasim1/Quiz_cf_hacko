@@ -28,7 +28,7 @@ class Quiz(View):
         return render(
             request,
             "quiz/quiz.html",
-            {"questions": questions,"quiz_id":str(quiz_id)}
+            {"questions": questions,"quiz_id":str(quiz_id),"seconds":100}
         )
 
     def post(self, request,quiz_id):
@@ -47,7 +47,10 @@ class Quiz(View):
                 mark+=1
         
         total=len(b)
-        LBoard.update_mark(name,quiz_name,mark)
+        try:
+            LBoard.update_mark(name,quiz_name,mark)
+        except:
+            pass
         LBoard.store_data(name,quiz_name,mark,total)
             
         
