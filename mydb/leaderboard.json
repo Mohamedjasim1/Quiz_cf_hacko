@@ -57,6 +57,48 @@
     ],
     "moni": [
         {
+            "as": {
+                "got": 4,
+                "total": 5
+            }
+        },
+        {
+            "egr": {
+                "got": 0,
+                "total": 5
+            }
+        },
+        {
+            "esf": {
+                "got": 5,
+                "total": 5
+            }
+        },
+        {
+            "weiw": {
+                "got": 0,
+                "total": 5
+            }
+        },
+        {
+            "CF quiz": {
+                "got": 0,
+                "total": 5
+            }
+        },
+        {
+            "dynamic programing": {
+                "got": 0,
+                "total": 2
+            }
+        },
+        {
+            "sample": {
+                "got": 0,
+                "total": 3
+            }
+        },
+        {
             "python quiz": {
                 "got": 0,
                 "total": 2

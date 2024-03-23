@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block title %}Add Questions{% endblock %}
+
+{% block body %}
+<div class="container mt-5 mb-5">
+<form method="post" action="{% url 'quiz_details' %}">
+  {% csrf_token %}
+  <h1 class="text-center">
+    Quiz Details
+  </h1>
+  <br><br>
+  <label for="InputQuestion{{ i }}" class="form-label">
+      Quiz Name
+  </label>
+  <input type="text" class="form-control" id="quiz_name" name="quiz_name" placeholder="Name Of The Quiz" required autofocus>
+
+  <br>
+  <label for="SECONDS" class="form-label">
+    Set Timer
+</label>
+<input type="number" class="form-control" id="seconds" name="seconds" placeholder="--" required autofocus>
+
+  <br>
+
+  <label for="quiz_num" class="form-label">
+    No. Of Quiz
+</label>
+<input type="number" class="form-control" id="quiz_no" name="quiz_no" placeholder="Number Of Quiz" required autofocus>
+  
+  
+  <br>
+  <button type="submit" class="btn btn-primary w-100">Next</button>
+</form>
+</div>
+{% endblock %}

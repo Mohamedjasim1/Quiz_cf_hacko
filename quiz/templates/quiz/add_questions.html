@@ -13,9 +13,15 @@
   <label for="InputQuestion{{ i }}" class="form-label">
       Quiz Name
   </label>
-  <input type="text" class="form-control" id="quiz_name" name="quiz_name" placeholder="Name Of The Quiz" required autofocus>
+  <input type="text" class="form-control" id="quiz_name" name="quiz_name"   placeholder="Name Of The Quiz" required autofocus>
 
-  <br><br>
+  <br>
+  <label for="SECONDS" class="form-label">
+    Set Timer
+</label>
+<input type="number" class="form-control" id="seconds"  name="seconds" placeholder="--" required autofocus>
+
+  <br>
   {% for i in questions %}
   <div class="mb-3">
     <label for="InputQuestion{{ i }}" class="form-label">

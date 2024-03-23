@@ -28,7 +28,7 @@ class quiz_pro():
             fp.write(json_object)
 
 
-    def get_quiz_detail(self,quiz_name,creator,quiz,options,co,count):
+    def get_quiz_detail(self,quiz_name,creator,quiz,options,co,count,seconds):
         
         if(count not in self.db):
             self.db[count]={}
@@ -40,6 +40,7 @@ class quiz_pro():
         
         self.db[count]["creator"]=creator
         self.db[count]["name"]=quiz_name
+        self.db[count]["seconds"]=seconds
         if("quizzes" not in self.db[count]):
              self.db[count]["quizzes"]=[]
 
@@ -47,6 +48,7 @@ class quiz_pro():
         qtns["quiz"]=quiz
         qtns["options"]=options
         qtns["correct"]=co
+        
 
         self.db[count]["quizzes"].append(qtns)
         # self.db[quiz_name]["quiz"][count]={}
@@ -55,7 +57,11 @@ class quiz_pro():
         # self.db[quiz_name]["quiz"][count]["correct"]=co
         
         self.flush_data()
-
+    def get_quiznames(self):
+        c=[]
+        for k,v in self.db.items():
+            c.append([v["name"],k])
+        return c
 
     def all_quiz_data(self):
         return self.db
@@ -65,6 +71,9 @@ class quiz_pro():
     
     def creator_quiz(self,creator):
         return(self.db[creator]["quizzes"])
+    
+    def get_seconds(self,creator):
+        return(self.db[creator]["seconds"])
     
     def quiz_count(self):
         return self.db["total_quiz"]

@@ -92,6 +92,14 @@ class leaderboard_pro():
        
         return a
     
+    def get_indiduals_mark(self,user):
+        c={}
+        for x in self.db[user]:
+            for k,v in x.items():
+                c[k]=v["got"]
+        return c
+
+    
                 
                 
 

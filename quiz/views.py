@@ -15,7 +15,7 @@ LBoard=leaderboard_pro()
 
 class Quiz_module(View):
     def get(self,request):
-       
+        
         context=quiz_p.all_quiz_data()
         return render(request,"quiz/quiz_module.html",{"context":context})
 
@@ -23,12 +23,12 @@ class Quiz(View):
     def get(self, request,quiz_id):
       
         questions =quiz_p.creator_quiz(str(quiz_id))
-        
+        seconds=quiz_p.get_seconds(str(quiz_id))
       
         return render(
             request,
             "quiz/quiz.html",
-            {"questions": questions,"quiz_id":str(quiz_id),"seconds":100}
+            {"questions": questions,"quiz_id":str(quiz_id),"seconds":seconds}
         )
 
     def post(self, request,quiz_id):
@@ -69,15 +69,34 @@ class Quiz(View):
         return render(request,"quiz/result.html",{"content":mark,"quiz_id":str(quiz_id)})
 
 # @method_decorator(login_required, name="dispatch")
+    
+
+# class Quiz_detail(View):
+
+
+#     def get(self, request):
+#         return render(
+#             request, 
+#             "quiz/quiz_detail.html",
+          
+#         ) 
+
+#     def post(self, request):
+
+#         data = request.POST
+#         name=data.get("quiz_name")
+#         seconds=data.get("seconds")
+#         x=data.get("quiz_no")
+        
+#         return redirect("add_question",)
+        
+
 class AddQuestion(View):
     db={"qtns":{}}
     def get(self, request):
         return render(
             request, 
-            "quiz/add_questions.html",
-            {
-                "questions": range(1,6)
-            }
+            "quiz/add_questions.html",{"questions":range(1,2)}
         )
     
     def post(self, request):
@@ -86,7 +105,7 @@ class AddQuestion(View):
 
         already_exists=0
         
-        for i in range(1, 6):
+        for i in range(1, 2):
             data = request.POST
             q = data.get(f"q{i}", "")
             o1 = data.get(f"q{i}o1", "")
@@ -95,9 +114,10 @@ class AddQuestion(View):
             o4 = data.get(f"q{i}o4", "")
             co = data.get(f"q{i}c", "")
             quiz_name=data.get("quiz_name")
+            seconds=data.get("seconds")
             # self.db["creator"]=request.user
             # self.db["qtns"][q]=list([o1,o2,o3,o4])
-            quiz_p.get_quiz_detail(quiz_name,str(request.user),q,list([o1,o2,o3,o4]),co,quiz_p.current_quiz(quiz_name))
+            quiz_p.get_quiz_detail(quiz_name,str(request.user),q,list([o1,o2,o3,o4]),co,quiz_p.current_quiz(quiz_name),seconds)
 
 
             
@@ -138,3 +158,13 @@ class Leaderboard(View):
             request, 
             "quiz/leaderboard.html", 
             {"results":result})
+    
+class Leaderboards(View):
+    def get(self,request):
+        leaderboard=quiz_p.get_quiznames()
+
+        return render(
+            request, 
+            "quiz/leaderboards.html", 
+            {"leaderboard":leaderboard})
+

@@ -2,6 +2,7 @@
     "1": {
         "creator": "anonymous@example.com",
         "name": "python quiz",
+        "seconds": 30,
         "quizzes": [
             {
                 "quiz": "how many types of functions in Python?",
@@ -28,6 +29,7 @@
     "2": {
         "creator": "hazana",
         "name": "sample",
+        "seconds": 60,
         "quizzes": [
             {
                 "quiz": "whats your name",
@@ -104,6 +106,7 @@
     "3": {
         "creator": "hazana",
         "name": "CF quiz",
+        "seconds": 120,
         "quizzes": [
             {
                 "quiz": "how many leads in cf?",
@@ -152,6 +155,100 @@
                     "wgrkj",
                     "wrh",
                     "werhb"
+                ],
+                "correct": "B"
+            }
+        ]
+    },
+    "4": {
+        "creator": "moni",
+        "name": "weiw",
+        "seconds": "10",
+        "quizzes": [
+            {
+                "quiz": "wew",
+                "options": [
+                    "wert",
+                    "yw",
+                    "gj",
+                    "ht"
+                ],
+                "correct": "A"
+            },
+            {
+                "quiz": "ffy",
+                "options": [
+                    "hgdt",
+                    "hf",
+                    "jv",
+                    "jgf"
+                ],
+                "correct": "B"
+            },
+            {
+                "quiz": "wargg",
+                "options": [
+                    "wsr",
+                    "g",
+                    "ets",
+                    "re"
+                ],
+                "correct": "C"
+            },
+            {
+                "quiz": "steyrw",
+                "options": [
+                    "eyt",
+                    "et",
+                    "y",
+                    "e"
+                ],
+                "correct": "C"
+            },
+            {
+                "quiz": "werteyr",
+                "options": [
+                    "jyer",
+                    "yte",
+                    "yeet",
+                    "e"
+                ],
+                "correct": "A"
+            }
+        ]
+    },
+    "5": {
+        "creator": "moni",
+        "name": "sample",
+        "seconds": "3",
+        "quizzes": [
+            {
+                "quiz": "broo whattt",
+                "options": [
+                    "ad",
+                    "merge",
+                    "w",
+                    "s"
+                ],
+                "correct": "B"
+            },
+            {
+                "quiz": "s",
+                "options": [
+                    "aaaas",
+                    "ew",
+                    "fd",
+                    "dfgg"
+                ],
+                "correct": "A"
+            },
+            {
+                "quiz": "sa",
+                "options": [
+                    "fd",
+                    "merge",
+                    "wqr",
+                    "dfgg"
                 ],
                 "correct": "B"
             }
