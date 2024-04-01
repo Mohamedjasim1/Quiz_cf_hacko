@@ -1,22 +1,13 @@
 {% extends "layout2.html" %}
-
 {% block title %}Quiz{% endblock %}
 
+{% block body %}
+<div class="container mt-5 mb-5">
+    <form id="quizForm" method="post" action="{% url 'quiz' quiz_id %}">
+        {% csrf_token %}
+        <h1 class="text-center">Quiz</h1>
 
-  
-
-  
-  
-
-  {% block body %}
-  <div class="container mt-5 mb-5">
-      <form method="post" action="{% url 'quiz' quiz_id %}">
-          {% csrf_token %}
-          <h1 class="text-center">Quiz</h1>
-  
-          
-
-          <style>
+        <style>
             .progress-circle {
               width: 70px;
               height: 70px;
@@ -51,87 +42,97 @@
         </div>
       </div>
     </br>
-        
-          <div class="progress">
-              <div id="theBar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="0" style="width: 100%; background-color: rgb(0, 213, 255);"></div>
-          </div>
-  
-          <div class="card border-info">
-              {% for key in questions %}
-              <div class="card-header bg-info text-white">Question {{forloop.counter}}</div>
-              <div class="card-body">
-                  <h5 class="user-select-none">{{ key.quiz }}</h5>
-                  <input type="hidden" id="quizId" value="{{ quiz_id }}">
-                  <input type="hidden" id="seconds" value="{{ seconds }}">
-                  <input type="hidden" name="q{{forloop.counter}}" value="{{q.id}}">
-                  <div class="form-check">
-                      <input class="form-check-input" autocomplete="off" type="radio" name="q{{forloop.counter}}o" id="q1" value="A">
-                      <label class="form-check-label" for="q{{forloop.counter}}o1">{{ key.options.0 }}</label>
-                  </div>
-                  <div class="form-check">
-                      <input class="form-check-input" autocomplete="off" type="radio" name="q{{forloop.counter}}o" id="q2" value="B">
-                      <label class="form-check-label" for="q{{forloop.counter}}o1">{{ key.options.1 }}</label>
-                  </div>
-                  <div class="form-check">
-                      <input class="form-check-input" autocomplete="off" type="radio" name="q{{forloop.counter}}o" id="q3" value="C">
-                      <label class="form-check-label" for="q{{forloop.counter}}o1">{{ key.options.2 }}</label>
-                  </div>
-                  <div class="form-check">
-                      <input class="form-check-input" autocomplete="off" type="radio" name="q{{forloop.counter}}o" id="q4" value="D">
-                      <label class="form-check-label" for="q{{forloop.counter}}o1">{{ key.options.3 }}</label>
-                  </div>
-              </div>
-              {% endfor %}
-          </div>
-  
-          <button id="button" type="submit" class="btn btn-primary w-100">Submit</button>
-      </form>
-  </div>
-  
-  {% endblock %}
-  
-  {% block js %}
-  <script>
-      // Function to start the timer
-      function startTimer() {
-          var quizId = document.getElementById('quizId').value;
-          var seconds = parseInt(document.getElementById('seconds').value);
-  
-          // Retrieve the start time from localStorage or set it if not available
-          var startTime = localStorage.getItem('startTime_' + quizId);
-          if (!startTime) {
-              startTime = Date.now(); // Start time in milliseconds
-              localStorage.setItem('startTime_' + quizId, startTime);
-          } else {
-              startTime = parseInt(startTime);
-          }
-  
-          // Update the timer display and progress bar
-          var interval = setInterval(function() {
-              var currentTime = Date.now(); // Current time in milliseconds
-              var elapsedTime = currentTime - startTime;
-              var remainingSeconds = Math.max(0, seconds - Math.floor(elapsedTime / 1000));
-  
-              // Update the timer display for the specific quiz
-              document.getElementById('demo').textContent = remainingSeconds;
-  
-              // Update the progress bar for the specific quiz
-              var progressBar = document.getElementById("theBar");
-              var progressPercentage = Math.max(0, (remainingSeconds / seconds) * 100);
-              progressBar.style.width = progressPercentage+ "%";
-  
-              // If remaining time is 0, clear interval for the specific quiz
-              if (remainingSeconds === 0) {
-                  clearInterval(interval);
-                  // Optionally, reset localStorage for the specific quiz
-                  localStorage.removeItem('startTime_' + quizId);
-                  // Automatically submit the form when time is up for the specific quiz
-                  document.getElementById("button").click();
-              }
-          }, 1000);
-      }
-  
-      // Start the timer when the page loads
-      window.onload = startTimer;
-  </script>
-  {% endblock %}
+
+
+
+
+        <div class="progress">
+            <div id="theBar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="0" style="width: 100%; background-color: rgb(0, 213, 255);"></div>
+        </div>
+
+        <div class="card border-info">
+            {% for key in questions %}
+            <div class="card-header bg-info text-white">Question {{forloop.counter}}</div>
+            <div class="card-body">
+                <h5 class="user-select-none">{{ key.quiz }}</h5>
+                <input type="hidden" name="q{{forloop.counter}}" value="{{q.id}}">
+                <div class="form-check">
+                    <input class="form-check-input" autocomplete="off" type="radio" name="q{{forloop.counter}}o" id="q{{forloop.counter}}o1" value="A">
+                    <label class="form-check-label" for="q{{forloop.counter}}o1">{{ key.options.0 }}</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" autocomplete="off" type="radio" name="q{{forloop.counter}}o" id="q{{forloop.counter}}o2" value="B">
+                    <label class="form-check-label" for="q{{forloop.counter}}o2">{{ key.options.1 }}</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" autocomplete="off" type="radio" name="q{{forloop.counter}}o" id="q{{forloop.counter}}o3" value="C">
+                    <label class="form-check-label" for="q{{forloop.counter}}o3">{{ key.options.2 }}</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" autocomplete="off" type="radio" name="q{{forloop.counter}}o" id="q{{forloop.counter}}o4" value="D">
+                    <label class="form-check-label" for="q{{forloop.counter}}o4">{{ key.options.3 }}</label>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <button id="submitButton" type="button" class="btn btn-primary w-100">Submit</button>
+    </form>
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script>
+    // Function to start the timer
+    function startTimer() {
+        var quizId = "{{ quiz_id }}";
+        var seconds = "{{ seconds }}";
+
+        // Retrieve the start time from localStorage or set it if not available
+        var startTime = localStorage.getItem('startTime_' + quizId);
+        if (!startTime) {
+            startTime = Date.now(); // Start time in milliseconds
+            localStorage.setItem('startTime_' + quizId, startTime);
+        } else {
+            startTime = parseInt(startTime);
+        }
+
+        // Update the timer display and progress bar
+        var interval = setInterval(function () {
+            var currentTime = Date.now(); // Current time in milliseconds
+            var elapsedTime = currentTime - startTime;
+            var remainingSeconds = Math.max(0, seconds - Math.floor(elapsedTime / 1000));
+
+            // Update the timer display for the specific quiz
+            document.getElementById('demo').textContent = remainingSeconds;
+
+            // Update the progress bar for the specific quiz
+            var progressBar = document.getElementById("theBar");
+            var progressPercentage = Math.max(0, (remainingSeconds / seconds) * 100);
+            progressBar.style.width = progressPercentage + "%";
+
+            // If remaining time is 0, clear interval for the specific quiz
+            if (remainingSeconds === 0) {
+                clearInterval(interval);
+                // Optionally, reset localStorage for the specific quiz
+                localStorage.removeItem('startTime_' + quizId);
+                // Automatically submit the form when time is up for the specific quiz
+                document.getElementById("quizForm").submit();
+            }
+        }, 1000);
+    }
+
+    // Start the timer when the page loads
+    window.onload = startTimer;
+
+    // Submit button click event handler
+    document.getElementById("submitButton").addEventListener("click", function () {
+        // Stop the timer when the quiz is submitted
+        var quizId = "{{ quiz_id }}";
+        localStorage.removeItem('startTime_' + quizId);
+        // Submit the form
+        document.getElementById("quizForm").submit();
+    });
+</script>
+{% endblock %}

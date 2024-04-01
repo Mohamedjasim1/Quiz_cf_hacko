@@ -96,7 +96,7 @@ class AddQuestion(View):
     def get(self, request):
         return render(
             request, 
-            "quiz/add_questions.html",{"questions":range(1,2)}
+            "quiz/add_questions.html",{"questions":range(1,6)}
         )
     
     def post(self, request):
@@ -105,7 +105,7 @@ class AddQuestion(View):
 
         already_exists=0
         
-        for i in range(1, 2):
+        for i in range(1, 6):
             data = request.POST
             q = data.get(f"q{i}", "")
             o1 = data.get(f"q{i}o1", "")

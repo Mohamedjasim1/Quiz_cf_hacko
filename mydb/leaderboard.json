@@ -35,15 +35,15 @@
     ],
     "Jasim": [
         {
-            "python quiz": {
-                "got": 1,
-                "total": 2
-            }
-        },
-        {
             "sample": {
                 "got": 2,
                 "total": 7
+            }
+        },
+        {
+            "python quiz": {
+                "got": 0,
+                "total": 2
             }
         }
     ],
@@ -94,8 +94,34 @@
         },
         {
             "sample": {
-                "got": 0,
+                "got": 1,
                 "total": 3
+            }
+        },
+        {
+            "python quiz": {
+                "got": 2,
+                "total": 2
+            }
+        }
+    ],
+    "jasim": [
+        {
+            "weiw": {
+                "got": 0,
+                "total": 5
+            }
+        },
+        {
+            "sample": {
+                "got": 0,
+                "total": 7
+            }
+        },
+        {
+            "CF quiz": {
+                "got": 3,
+                "total": 5
             }
         },
         {
